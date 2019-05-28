@@ -42,6 +42,6 @@ Usage Notes or examples
 * How do you run tests?
 * What assertions were made?
 * What assertions need to be / should be made?
-
-#### UML
-Link to an image of the UML for your application and response to events -->
+ -->
+#### UML  
+![uml](https://github.com/401-advanced-javascript-mspake/lab-11/blob/authentication/assets/uml.jpg)  
