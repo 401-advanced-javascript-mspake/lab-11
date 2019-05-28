@@ -49,8 +49,48 @@ describe('Auth Router', () => {
           });
       });
 
+      describe('Book routes', () => {
+        it('/books route returns books when given valid username and password', () => {
+          return mockRequest.get('/books')
+            .auth(users[userType].username, users[userType].password)
+            .then(results => {
+              expect(results.status).toEqual(200);
+              expect(results.body.results[0].title).toBeDefined();
+            });
+        });
+
+        it('/books route returns an error when give invalid credentials', () => {
+          return mockRequest.get('/books')
+            .auth('alice', 'whiterabbit')
+            .then(results => {
+              expect(results.body.results).not.toBeDefined();
+              expect(results.body.error).toBeDefined();
+              expect(results.status).toBe(401);
+            });
+        });
+
+        it('/books/:id route returns single book when given valid username and password', () => {
+          return mockRequest.get('/books/1')
+            .auth(users[userType].username, users[userType].password)
+            .then(results => {
+              expect(results.status).toEqual(200);
+              expect(results.body.title).toEqual('Moby Dick');
+            });
+        });
+        
+        it('/books/:id route returns an error when given no or invalid credentials', () => {
+          return mockRequest.get('/books/1')
+            .then(results => {
+              expect(results.body.title).toBeUndefined();
+              expect(results.status).toEqual(401);
+              expect(results.body.error).toBeDefined();
+            });
+        });
+      });
+
     });
     
   });
   
 });
+
