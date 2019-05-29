@@ -1,4 +1,9 @@
 'use strict';
+/**
+ * API Server Module
+ * @module src/app
+ * 
+ */
 
 // 3rd Party Resources
 const express = require('express');
@@ -24,6 +29,10 @@ app.use(express.urlencoded({extended:true}));
 app.use(authRouter);
 app.use(bookRouter);
 
+app.use(express.static(process.env.DOCS_FILEPATH));
+app.use('/',(req, res) => {
+  res.render('/index.html');
+});
 // Catchalls
 app.use(notFound);
 app.use(errorHandler);
@@ -33,6 +42,11 @@ let isRunning = false;
 
 module.exports = {
   server: app,
+
+  /**
+   * Start the server
+   * @param {number} port Port to run the server on
+   */
   start: (port) => {
     if( ! isRunning ) {
       app.listen(port, () => {
