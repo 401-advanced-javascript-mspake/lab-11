@@ -7,7 +7,7 @@
   
 ### Links and Resources  
 * [submission PR](https://github.com/401-advanced-javascript-mspake/lab-11/pull/1)  
-* [travis](https://www.travis-ci.com/)  
+* [travis](https://www.travis-ci.com/401-advanced-javascript-mspake/lab-11)  
   
 #### Documentation  
 * jsdoc - '/' endpoint on server   
