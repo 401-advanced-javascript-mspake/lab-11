@@ -29,10 +29,8 @@ app.use(express.urlencoded({extended:true}));
 app.use(authRouter);
 app.use(bookRouter);
 
-app.use(express.static(process.env.DOCS_FILEPATH));
-app.use('/',(req, res) => {
-  res.render('/index.html');
-});
+app.use(express.static('docs'));
+
 // Catchalls
 app.use(notFound);
 app.use(errorHandler);

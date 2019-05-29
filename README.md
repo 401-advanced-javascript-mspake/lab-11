@@ -10,7 +10,7 @@
 * [travis](https://www.travis-ci.com/)  
   
 #### Documentation  
-* jsdoc - '/' endpoint on server, requires a local filepath to the docs folder in the .env (see env requirements below)  
+* jsdoc - '/' endpoint on server   
   
 ### Modules  
 #### `app.js, books.js, middleware.js, router.js, users-model.js, 404.js, error.js`
@@ -28,7 +28,6 @@
 #### `.env` requirements  
 * `PORT` - Port Number  
 * `MONGODB_URI` - URL to the running mongo instance/db  
-* `DOCS_FILEPATH` - Local filepath to docs folder  
    
 #### Running the app  
 * `npm start`  
